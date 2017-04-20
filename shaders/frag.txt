@@ -1,0 +1,9 @@
+#version 400
+uniform vec2 ppos;
+out vec4 frag_color; 
+void main() {
+	float px = ppos.x - gl_FragCoord.x;
+	float py = ppos.y - gl_FragCoord.y;
+	float len = sqrt(px*px + py*py);
+	frag_color = vec4(0,0,0,clamp(len/300,0.0,0.92)); 
+}
